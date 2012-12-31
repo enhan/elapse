@@ -9,11 +9,12 @@ import com.google.common.collect.ImmutableList;
  * Time: 11:28 AM
  * To change this template use File | Settings | File Templates.
  */
-public class SequenceType {
+public class SequenceType extends StepTypeToken{
 
     private final ImmutableList<StepTypeToken> sequence;
 
     SequenceType(ImmutableList<StepTypeToken> sequence) {
+        super(StepType.SEQUENCE);
         this.sequence = sequence;
     }
 

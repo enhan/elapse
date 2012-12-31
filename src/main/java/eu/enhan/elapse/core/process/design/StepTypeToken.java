@@ -7,9 +7,10 @@ import static com.google.common.base.Preconditions.*;
 /**
  *
  */
-public final class StepTypeToken {
+public class StepTypeToken {
 
     public enum StepType{
+        SEQUENCE,
         CUSTOM
     }
 
@@ -18,14 +19,18 @@ public final class StepTypeToken {
         return new StepTypeToken(stepTypeRef);
     }
 
-    public static StepTypeToken buildInType(StepType type){
+    /*public static StepTypeToken parallelOf(StepTypeToken steps){
+
+    }*/
+
+    /*public static StepTypeToken buildInType(StepType type){
         return new StepTypeToken(type);
-    }
+    } */
 
     private final StepType type;
     private final String name;
 
-    private StepTypeToken(StepType type) {
+    protected StepTypeToken(StepType type) {
         checkNotNull(type);
         checkArgument(type !=  StepType.CUSTOM);
         this.type = type;

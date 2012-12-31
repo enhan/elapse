@@ -11,12 +11,22 @@ import static com.google.common.base.Preconditions.*;
 public class SequenceTypeBuilder {
 
 
+    public static SequenceType sequence(StepTypeToken steps){
+        return new SequenceTypeBuilder().addAllSteps(steps).build();
+    }
+
+
     private final ImmutableList.Builder<StepTypeToken> seqBuilder = ImmutableList.builder();
 
 
     public SequenceTypeBuilder addStep(StepTypeToken stepToken){
         checkNotNull(stepToken);
         seqBuilder.add(stepToken);
+        return this;
+    }
+
+    public SequenceTypeBuilder addAllSteps(StepTypeToken ... steps){
+        seqBuilder.add(steps);
         return this;
     }
 
